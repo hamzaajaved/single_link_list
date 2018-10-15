@@ -55,7 +55,21 @@ void insertAt(struct Node* prevNode,int val){
 }
 
 void deleteNode(int val){
-	
+	struct Node *curr = start;
+	if(curr->value == val){
+		start = start->next;
+		free(curr);
+	}else{
+		struct Node *prev = start;
+		curr = curr->next;
+		while (curr->value != val)
+		{
+			curr = curr->next;
+			prev = prev->next;
+		}
+		prev->next = curr->next;
+		free(curr);
+	}
 }
 
 void printNode(){
