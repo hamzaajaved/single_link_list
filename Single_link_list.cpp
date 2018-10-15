@@ -10,6 +10,7 @@ void insertAtEnd(int val);
 void insertAt(struct Node* prevNode,int val);
 void deleteNode(int val);
 void printNode();
+void search(int val);
 struct Node *start = NULL;
 int main(){
 	insertAtEnd(5);
@@ -18,6 +19,11 @@ int main(){
 	insertAtEnd(20);
 	insertAt(start->next,8);
 	printNode();
+	deleteNode(8);
+	deleteNode(5);
+	cout << "----------" << endl;
+	printNode();
+	search(20);
 }
 
 void insertAtFront(int val){
@@ -69,6 +75,38 @@ void deleteNode(int val){
 		}
 		prev->next = curr->next;
 		free(curr);
+	}
+}
+void search(int val)
+{
+	if (start == NULL)
+	{
+		cout << "List is Empty" << endl;
+	}
+	else
+	{
+		struct Node *curr = start;
+		while (curr->next != NULL)
+		{
+			if (curr->value == val)
+			{
+				cout << val << " Found in List" << endl;
+				break;
+			}
+			curr = curr->next;
+			if (curr->next == NULL)
+			{
+				if (curr->value == val)
+				{
+					cout << val << " Found in List" << endl;
+					break;
+				}
+				else
+				{
+					cout << val << " is not Found in List " << endl;
+				}
+			}
+		}
 	}
 }
 
