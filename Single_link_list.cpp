@@ -8,6 +8,7 @@ struct Node{
 void insertAtFront(int val);
 void insertAtEnd(int val);
 void insertAt(struct Node* prevNode,int val);
+void deleteNode(int val);
 void printNode();
 struct Node *start = NULL;
 int main(){
@@ -51,6 +52,10 @@ void insertAt(struct Node* prevNode,int val){
 	ptr->value = val;
 	ptr->next = prevNode->next;
 	prevNode->next = ptr;	
+}
+
+void deleteNode(int val){
+	
 }
 
 void printNode(){
